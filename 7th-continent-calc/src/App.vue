@@ -1,24 +1,24 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <Header
       v-bind:numberOfLuckySeven="numberOfLuckySeven"
       v-bind:numberOfPlayers="numberOfPlayers"
       />
 
     <v-content>
-      <HelloWorld/>
+      <Main/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Main from './components/Main'
 import Header from './components/Header'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Main,
     Header
   },
   data () {
@@ -28,9 +28,13 @@ export default {
     }
   },
   methods: {
-    test() {
-      console.log("test")
-    }
   }
 }
 </script>
+
+<style>
+  #app {
+    background-image: url('assets/background.jpg');
+    background-position-x: center;
+  }
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar app class="v-toolbar--extended theme--dark cyan" height="85">
+  <v-toolbar app class="header v-toolbar--extended theme--dark cyan" height="85">
       <v-btn
         flat
         @clik="test"
@@ -38,7 +38,7 @@
               width="73"
               contain
             ></v-img>
-          <span class="font-weight-light">calculator</span>
+          <span class="calculator font-weight-light">calculator</span>
         </v-layout>
       </v-toolbar-title>
       
@@ -123,4 +123,21 @@
   .times {
     padding: 0.15em;
   }
+
+  .header {
+    background-image: url(../assets/menu_bar.png);
+    background-position: top center;
+    position: absolute;
+
+    -webkit-box-shadow: 0px 3px 6px 4px rgba(0,0,0,0.50);
+    -moz-box-shadow: 0px 3px 6px 4px rgba(0,0,0,0.50);
+    box-shadow: 0px 3px 6px 4px rgba(0,0,0,0.50);
+  }
+
+  @media screen and (max-width: 600px) {
+    .calculator {
+      display: none;
+    }
+  }
+  
 </style>
