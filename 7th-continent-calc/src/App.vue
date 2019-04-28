@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <Header/>
+    <Header
+      v-bind:numberOfLuckySeven="numberOfLuckySeven"
+      v-bind:numberOfPlayers="numberOfPlayers"
+      />
 
     <v-content>
       <HelloWorld/>
@@ -20,7 +23,8 @@ export default {
   },
   data () {
     return {
-      //
+      numberOfLuckySeven: 0,
+      numberOfPlayers: 2,
     }
   },
   methods: {
