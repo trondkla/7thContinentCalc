@@ -109,7 +109,7 @@
 
     methods: {
       test: () => {
-        console.log('Test')
+        // console.log('Test')
       } 
     }
   }

@@ -1,8 +1,8 @@
 <template>
   <v-app id="app">
     <Header
-      v-bind:numberOfLuckySeven="numberOfLuckySeven"
-      v-bind:numberOfPlayers="numberOfPlayers"
+      :numberOfLuckySeven="numberOfLuckySeven"
+      :numberOfPlayers="numberOfPlayers"
       />
 
     <v-content>
