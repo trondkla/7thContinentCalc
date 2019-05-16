@@ -1,4 +1,4 @@
 // vue.config.js
 module.exports = {
-    publicPath: '7th-continent-calc'
+    publicPath: '7th-continent-calc/public'
 } 
