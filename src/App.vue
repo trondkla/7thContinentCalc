@@ -3,6 +3,8 @@
     <Header
       :numberOfLuckySeven="numberOfLuckySeven"
       :numberOfPlayers="numberOfPlayers"
+      @changeNumberOfPlayers="changeNumberOfPlayers"
+      @changeNumberOfLuckySeven="changeNumberOfLuckySeven"
       />
 
     <v-content>
@@ -28,6 +30,12 @@ export default {
     }
   },
   methods: {
+    changeNumberOfPlayers(number) {
+      this.numberOfPlayers = number
+    },
+    changeNumberOfLuckySeven(number) {
+      this.numberOfLuckySeven = number
+    }
   }
 }
 </script>

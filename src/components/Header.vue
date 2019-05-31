@@ -1,31 +1,12 @@
 <template>
   <v-toolbar app class="header v-toolbar--extended theme--dark cyan" height="85">
-      <v-btn
-        flat
-        @clik="test"
-        title="Change number of players"
-        dark
-        icon
-        round
-        fab
-        large
-        target="_blank"
-      >
-        <v-avatar
-          size="45"
-          class="text-lowercase"
-          >
-          <span class="multiplier">
-            <span class="text-large">
-             {{numberOfPlayers}} 
-            </span>
-            <span class="times">
-              x
-            </span>
-          </span>
-          <v-icon>people</v-icon>
-         </v-avatar>
-      </v-btn>
+
+      <NumberOfPlayersElem
+        :numberOfPlayers="numberOfPlayers"
+        @changeNumberOfPlayers="changeNumberOfPlayers" 
+        >
+      </NumberOfPlayersElem>
+
       <v-spacer></v-spacer>
 
 
@@ -79,10 +60,11 @@
         
       <v-list>
         <v-list-tile
-          v-for="(item, index) in possibleLucky7ns"
-          :key="index"
+          v-for="number of possibleLucky7ns"
+          :key="number"
+          @click="changeNumberOfLuckySeven(number)" 
         >
-          <v-list-tile-title>{{ item }}</v-list-tile-title>
+          <v-list-tile-title>{{ number }}</v-list-tile-title>
         </v-list-tile>
       </v-list>
       </v-menu>
@@ -90,16 +72,14 @@
 </template>
 
 <script>
+  import NumberOfPlayersElem from './NumberOfPlayers'
+
   export default {
+    components: {
+      NumberOfPlayersElem
+    },
     data: () => ({
-      possibleLucky7ns: [
-        {1: 1},
-        {2: 2},
-        {3: 3},
-        {4: 4},
-        {5: 5},
-        {6: 6},
-      ]
+      possibleLucky7ns: [ 1, 2, 3, 4, 5, 6 ],
     }),
 
     props: [
@@ -108,9 +88,12 @@
     ],
 
     methods: {
-      test: () => {
-        // console.log('Test')
-      } 
+      changeNumberOfPlayers(number) {
+        this.$emit('changeNumberOfPlayers', number)
+      },
+      changeNumberOfLuckySeven(number) {
+        this.$emit('changeNumberOfLuckySeven', number)
+      }
     }
   }
 </script>
