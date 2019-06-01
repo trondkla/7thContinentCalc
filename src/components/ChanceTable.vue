@@ -8,7 +8,7 @@
       </thead>
       <tbody>
           <tr v-for="(column, index) in convertRawToTable" :key="index">
-              <td>
+              <td class="first">
                 <div class="stars">{{index+1}}</div>
               </td>
               <td v-for="(item, index) in column" :key="index">
@@ -72,6 +72,13 @@
         background-size: 1.6em;
         text-shadow: 0px 1px 2px black;
         font-weight: bold;
+        position: absolute;
+        margin-top: -0.7em;
+        margin-left: -1.6em;;
+        width: 2em;
+    }
+
+    .first {
     }
 
     .card__blue {

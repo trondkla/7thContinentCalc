@@ -35,5 +35,6 @@
 <style>
   .layout {
     overflow: scroll;
+    margin-left: 0.8em;
   }
 </style>
