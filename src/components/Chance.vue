@@ -10,9 +10,7 @@
 
     methods: {
       calculateColor: (number) => {
-        console.log(number)
         let n = Number(number.substring(0, number.length-1))
-        console.log(number.substring(0, number.length-1))
         if (n < 1) {
           return 'no-chance'
         }

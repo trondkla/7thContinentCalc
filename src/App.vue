@@ -45,10 +45,10 @@ export default {
 
 <style>
   #app {
-    background-image: url('assets/background.jpg');
-    background-position-x: center;
     height: 100%;
     width: 100%;
+    background-image: url('assets/background.jpg');
+    background-position-x: center;
   }
 
   html, body {
