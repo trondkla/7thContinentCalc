@@ -3,7 +3,7 @@
     <v-layout
       text-xs-center
       wrap
-      class="layout"
+      class="chance-table-layout"
     >
       <ChanceTable
         :numberOfLuckySeven="numberOfLuckySeven"
@@ -33,7 +33,7 @@
 </script>
 
 <style>
-  .layout {
+  .chance-table-layout {
     overflow: scroll;
     margin-left: 0.8em;
   }
