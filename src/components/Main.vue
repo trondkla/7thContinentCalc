@@ -3,6 +3,7 @@
     <v-layout
       text-xs-center
       wrap
+      class="layout"
     >
       <ChanceTable
         :numberOfLuckySeven="numberOfLuckySeven"
@@ -20,7 +21,7 @@
     components: {
       ChanceTable,
     },
-    
+
     props: [
       'numberOfLuckySeven',
       'numberOfPlayers'
@@ -32,5 +33,7 @@
 </script>
 
 <style>
-
+  .layout {
+    overflow: scroll;
+  }
 </style>
