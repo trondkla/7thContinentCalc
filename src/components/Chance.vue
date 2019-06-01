@@ -54,11 +54,15 @@
   }
 
   .mid-chance {
-    background: orange
+    background: orange;
+    text-shadow: none;
+    color: black;
   }
 
   .propapble {
     background: yellow;
+    text-shadow: none;
+    color: black;
   }
 
   .good-chance {
@@ -71,6 +75,8 @@
 
   .garantued {
     background: lightblue;
+    color: black;
+    text-shadow: none;
   }
 
 </style>

@@ -4,7 +4,10 @@
       text-xs-center
       wrap
     >
-      <ChanceTable></ChanceTable>
+      <ChanceTable
+        :numberOfLuckySeven="numberOfLuckySeven"
+        :numberOfPlayers="numberOfPlayers"
+      ></ChanceTable>
     </v-layout>
   </v-container>
 </template>
@@ -17,8 +20,13 @@
     components: {
       ChanceTable,
     },
+    
+    props: [
+      'numberOfLuckySeven',
+      'numberOfPlayers'
+    ],
     data: () => ({
-      
+
     })
   }
 </script>

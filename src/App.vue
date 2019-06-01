@@ -8,7 +8,10 @@
       />
 
     <v-content>
-      <Main/>
+      <Main
+        :numberOfLuckySeven="numberOfLuckySeven"
+        :numberOfPlayers="numberOfPlayers"
+        />
     </v-content>
   </v-app>
 </template>
