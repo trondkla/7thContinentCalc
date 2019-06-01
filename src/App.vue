@@ -44,5 +44,15 @@ export default {
   #app {
     background-image: url('assets/background.jpg');
     background-position-x: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    touch-action: manipulation;
   }
 </style>

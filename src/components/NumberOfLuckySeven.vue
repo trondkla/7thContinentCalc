@@ -1,61 +1,40 @@
 <template>
-  <div class="text-xs-center">
-    <v-menu offset-y>
-      <template v-slot:activator="{ on }">
-        <v-btn
-          flat
-          v-on="on"
-          class="change-lucky-7"
-          title="Change number of lucky sevens"
-          right
-          large
-          fab
-          dark
-        >
-          <v-avatar
-            size="45"
-            tile
-            >
-            <span class="multiplier">
-              <span class="text-large">
-                {{numberOfLuckySeven}}
-              </span>
-              <span class="times">
-                x
-              </span>
-            </span>
-            <v-img
-              :src="require('@/assets/icons/icon_succes_7.png')"
-              class="lucky7"
-              contain
-            ></v-img>
-          </v-avatar>
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-tile
-          v-for="number of possibleLucky7ns"
-          :key="number"
-          @click="changeNumberOfLuckySeven(number)"
-        >
-          <v-list-tile-title>
-            <v-avatar
-            tile
-            >
-            <span class="multiplier">
-              <span class="">
-                {{number}}
-              </span>
-              <span class="times">
-                x
-              </span>
-            </span>
-          </v-avatar>
-          </v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
-  </div>
+  <v-menu offset-y>
+    <template v-slot:activator="{ on }">
+      <v-btn
+        flat
+        v-on="on"
+        class="change-lucky-7"
+        title="Change number of lucky sevens"
+        large
+        fab
+        dark
+      >
+      <v-avatar size="45" class="text-lowercase">
+        <span>
+          <span>{{numberOfLuckySeven}}</span>
+          <span class="times">x</span>
+        </span>
+        <v-img
+          :src="require('@/assets/icons/icon_succes_7.png')"
+          class="lucky7"
+          contain
+        ></v-img>
+      </v-avatar>
+      </v-btn>
+    </template>
+    <v-list>
+      <v-list-tile
+        v-for="number of possibleLucky7ns"
+        :key="number"
+        @click="changeNumberOfLuckySeven(number)"
+      >
+        <v-list-tile-title class="text-xs-center">
+          {{number}}
+        </v-list-tile-title>
+      </v-list-tile>
+    </v-list>
+  </v-menu>
 </template>
 
 <script>
@@ -77,16 +56,14 @@ export default {
 </script>
 
 <style>
-  .text-large {
-    font-size: large;
-  }
-
   .times {
     padding: 0.15em;
   }
 
   .lucky7__small {
-    height: 1em;
+    height: 1.2em;
+    width: 1.2em;
+    display: inline-block;
   }
 
 </style>
