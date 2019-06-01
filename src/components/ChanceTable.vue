@@ -8,7 +8,9 @@
       </thead>
       <tbody>
           <tr v-for="(column, index) in convertRawToTable" :key="index">
-              <td class="stars">{{index+1}}</td>
+              <td>
+                <div class="stars">{{index+1}}</div>
+              </td>
               <td v-for="(item, index) in column" :key="index">
                   <Chance v-bind:number="item"></Chance>
               </td>
@@ -25,7 +27,7 @@
     components: {
         Chance
     },
-    
+
     data: () => ({
         raw: `57.78%	88.28%	97.29%	99.44%	99.90%	99.98%	100.00%	100.00%	100.00%
 6.67%	50.81%	80.70%	93.93%	98.40%	99.64%	99.93%	99.99%	100.00%
@@ -71,23 +73,21 @@
 <style>
 
     table {
-        width: 100%
+        width: 100%;
+        font-size: 1.2em;
     }
 
     .stars {
         background: url('../assets/icons/icon_succes.png') no-repeat;
-        font-size: 1.2em;
-        background-size: contain;
         background-position: center;
         color: white;
-        padding: 0.4em;
+        background-size: 1.6em;
         text-shadow: 0px 1px 2px black;
         font-weight: bold;
     }
 
     .card__blue {
         background: url('../assets/icons/card_blue.png') no-repeat;
-        font-size: 1.2em;
         background-size: contain;
         background-position: center;
         color: white;
