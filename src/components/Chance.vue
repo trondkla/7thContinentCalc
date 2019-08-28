@@ -42,6 +42,7 @@
     padding: 0.2em;
     color: white;
     text-shadow: 0px 1px 2px black;
+    width: 100%;
   }
   .no-chance {
     background: purple;
@@ -64,17 +65,17 @@
   }
 
   .good-chance {
-    background: yellowgreen;
+    background: rgb(61, 197, 61);
   }
 
   .high-chance {
+    color: white;
     background: green;
   }
 
   .garantued {
-    background: lightblue;
-    color: black;
-    text-shadow: none;
+    background: rgb(16, 67, 207);
+    color: white;
   }
 
 </style>

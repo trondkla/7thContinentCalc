@@ -1,4 +1,6 @@
 <template>
+  <div>
+
   <table>
       <thead>
           <tr>
@@ -17,6 +19,37 @@
           </tr>
       </tbody>
   </table>
+  <section class="flex">
+
+    <div class="action action__prieview card cell">
+    </div>
+    <div class="card__blue previous cell"></div>
+    <div class="card__blue current cell"></div>
+    <div class="card__blue next cell"></div>
+
+    <div class="action action__next card cell">
+    </div>
+
+    <div class="stars cell">{{currentCards-1}}</div>
+    <Chance v-bind:number="convertRawToTable[currentCards-1][0]"></Chance>
+    <Chance v-bind:number="convertRawToTable[currentCards-1][1]"></Chance>
+    <Chance v-bind:number="convertRawToTable[currentCards-1][2]"></Chance>
+    <div class="stars cell">{{currentCards-1}}</div>
+
+    <div class="stars cell">{{currentCards}}</div>
+    <Chance v-bind:number="convertRawToTable[currentCards][0]"></Chance>
+    <Chance v-bind:number="convertRawToTable[currentCards][1]"></Chance>
+    <Chance v-bind:number="convertRawToTable[currentCards][2]"></Chance>
+    <div class="stars cell">{{currentCards}}</div>
+
+    <div class="stars cell">{{currentCards+1}}</div>
+    <Chance v-bind:number="convertRawToTable[currentCards+1][0]"></Chance>
+    <Chance v-bind:number="convertRawToTable[currentCards+1][1]"></Chance>
+    <Chance v-bind:number="convertRawToTable[currentCards+1][2]"></Chance>
+    <div class="stars cell">{{currentCards+1}}</div>
+
+  </section>
+  </div>
 </template>
 
 <script>
@@ -28,6 +61,12 @@
     components: {
       Chance
     },
+
+    data: () => ({
+
+      currentCards: 2,
+      currentStars: 2
+    }),
 
     props: [
       'numberOfLuckySeven',
@@ -42,7 +81,11 @@
 
         var index = 0;
         for(var row of rows) {
-          table[index++] = row.split('\t');
+          if(index <= this.currentStars && index+2 >= this.currentStars) {
+            table[index] = row.split('\t').splice(this.currentCards, 3)
+          }
+          
+          index++;
         }
 
         return table;
@@ -59,6 +102,21 @@
 </script>
 
 <style>
+
+    .flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex .row {
+
+    }
+
+    .flex .cell {
+      width: 20%;
+      margin: auto;
+      flex: 1;
+    }
 
     table {
         width: 100%;
