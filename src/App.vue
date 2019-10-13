@@ -19,16 +19,12 @@
 </template>
 
 <script>
-import ChanceTable from './components/ChanceTable'
-import ChooseDifficulty from './components/ChooseDifficulty'
 import Header from './components/Header'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    ChooseDifficulty,
-    ChanceTable
+    Header
   },
   data () {
     return {
@@ -61,5 +57,16 @@ export default {
     margin: 0;
     padding: 0;
     touch-action: manipulation;
+  }
+
+  .text__shadowed {
+    color: white;
+    text-shadow:
+      -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+    font-size: 0.9em;
+    -webkit-text-stroke: 1px black;
   }
 </style>

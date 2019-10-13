@@ -10,17 +10,19 @@
       <v-spacer></v-spacer>
 
 
-      <v-toolbar-title class="headline text-uppercase">
-        <v-layout align-center justify-center row fill-height>
-            <v-img
-              :src="require('@/assets/logo_t7c_small.png')"
-              class="logo"
-              height="94"
-              width="73"
-              contain
-            ></v-img>
-          <span class="calculator font-weight-light">calculator</span>
-        </v-layout>
+      <v-toolbar-title class="headline text-uppercase link">
+        <router-link to="/">
+          <v-layout align-center justify-center row fill-height>
+              <v-img
+                :src="require('@/assets/logo_t7c_small.png')"
+                class="logo"
+                height="94"
+                width="73"
+                contain
+              ></v-img>
+            <span class="calculator font-weight-light">calculator</span>
+          </v-layout>
+        </router-link>
       </v-toolbar-title>
       
       <v-spacer></v-spacer>
@@ -79,4 +81,7 @@
     }
   }
   
+  .link {
+    cursor: pointer;
+  }
 </style>

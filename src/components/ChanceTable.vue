@@ -1,46 +1,23 @@
 <template>
-  <div>
-
-    {{difficulty}}
-
-  <table>
-      <thead>
-          <tr>
-              <th></th>
-              <th v-for="index in numberOfColumns" :key="index" class="card__blue">{{index}}</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr v-for="(column, index) in convertRawToTable" :key="index">
-              <td class="first">
-                <div class="stars">{{index+1}}</div>
-              </td>
-              <td v-for="(item, index) in column" :key="index">
-                  <Chance v-bind:number="item"></Chance>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-  <section class="flex">
-
-    <div class="action action__prieview card cell">
-    </div>
-    <div class="card__blue previous cell"></div>
-    <div class="card__blue current cell"></div>
-    <div class="card__blue next cell"></div>
-
-    <div class="action action__next card cell">
-    </div>
-
-    <div class="stars cell">{{currentCards}}</div>
-    <Chance v-bind:number="convertRawToTable[currentCards][0]"></Chance>
-    <Chance v-bind:number="convertRawToTable[currentCards][1]"></Chance>
-    <Chance v-bind:number="convertRawToTable[currentCards][2]"></Chance>
-    <div class="stars cell">{{currentCards}}</div>
-
-
-  </section>
-  </div>
+  <main>
+    <header>
+      <div class="star text__shadowed">{{difficulty}}</div>
+      <h2 class="header__inline">Chances {{difficulty}} success check</h2>
+    </header>
+    <section class="card-possibilities">
+      <div
+        class="card-possiblity"
+        v-for="card in numberOfColumns"
+        v-bind:key="card"
+        >
+          <div class="number-of-cards card__blue">{{card}}</div>
+          <Chance 
+            class="chance-box"
+            v-bind:number="convertRawToTable[difficulty-1][card-1]"
+          ></Chance>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -54,9 +31,7 @@
     },
 
     data: () => ({
-
       currentCards: 2,
-      currentStars: 2
     }),
 
     props: [
@@ -64,6 +39,10 @@
       'numberOfPlayers',
       'difficulty'
     ],
+
+    created() {
+      this.currentCards = 2
+    },
 
     computed: {
       convertRawToTable() {
@@ -73,10 +52,7 @@
 
         var index = 0;
         for(var row of rows) {
-          if(index <= this.currentStars && index+2 >= this.currentStars) {
-            table[index] = row.split('\t').splice(this.currentCards, 3)
-          }
-          
+          table[index] = row.split('\t')
           index++;
         }
 
@@ -93,52 +69,58 @@
   }
 </script>
 
-<style>
+<style scoped>
 
-    .flex {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .flex .row {
-
-    }
-
-    .flex .cell {
-      width: 20%;
-      margin: auto;
-      flex: 1;
-    }
-
-    table {
-        width: 100%;
-        font-size: 1.2em;
-    }
-
-    .stars {
-        background: url('../assets/icons/icon_succes.png') no-repeat;
-        background-position: center;
-        color: white;
-        background-size: 1.6em;
-        text-shadow: 0px 1px 2px black;
-        font-weight: bold;
-        position: absolute;
-        margin-top: -0.7em;
-        margin-left: -1.6em;;
-        width: 2em;
-    }
-
-    .first {
+    .star {
+      display: inline-block;
+      background: url('../assets/icons/icon_succes.png') no-repeat;
+      background-position: center;
+      background-size: 2em;
+      width: 3em;
+      padding-left: 1.2em;
+      padding-top: 0.8em;
+      height: 3em;
+      font-size: 2em;
     }
 
     .card__blue {
-        background: url('../assets/icons/card_blue.png') no-repeat;
-        background-size: contain;
-        background-position: center;
-        color: white;
-        padding: 0.2em;
-        text-shadow: 0px 1px 2px black;
-        font-weight: bold;
+      display: inline-block;
+      background: url('../assets/icons/card_blue.png') no-repeat;
+      background-position: center;
+      background-size: contain;
 
+      color: white;
+      padding: 0.2em;
+      text-shadow: 0px 1px 2px black;
+      font-weight: bold;
+    }
+
+    .header__inline {
+      display: inline-block;
+    }
+
+    .card-possiblities {
+      display: flex;
+      flex-wrap: no-wrap;
+      flex-direction: column;
+    }
+
+    .card-possiblity {
+      display: flex;
+      flex-wrap: no-wrap;
+      flex-direction: row;
+      padding: 0.2em;
+    }
+
+    .card-possiblity .number-of-cards {
+      display: inline-block;
+      width: 50%;
+
+      width: 1em;
+      height: 1em;
+    }
+
+    .card-possiblity .chance-box {
+      display: inline-block;
     }
 </style>

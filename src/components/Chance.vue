@@ -42,7 +42,6 @@
     padding: 0.2em;
     color: white;
     text-shadow: 0px 1px 2px black;
-    width: 100%;
   }
   .no-chance {
     background: purple;

@@ -43,7 +43,7 @@ export default {
 
   data() {
       return {
-        possibleLucky7ns: [ 1, 2, 3, 4, 5, 6 ],
+        possibleLucky7ns: [ 0, 1, 2, 3, 4, 5, 6 ],
       }
   },
 
