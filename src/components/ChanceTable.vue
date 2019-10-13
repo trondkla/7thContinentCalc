@@ -1,6 +1,8 @@
 <template>
   <div>
 
+    {{difficulty}}
+
   <table>
       <thead>
           <tr>
@@ -30,23 +32,12 @@
     <div class="action action__next card cell">
     </div>
 
-    <div class="stars cell">{{currentCards-1}}</div>
-    <Chance v-bind:number="convertRawToTable[currentCards-1][0]"></Chance>
-    <Chance v-bind:number="convertRawToTable[currentCards-1][1]"></Chance>
-    <Chance v-bind:number="convertRawToTable[currentCards-1][2]"></Chance>
-    <div class="stars cell">{{currentCards-1}}</div>
-
     <div class="stars cell">{{currentCards}}</div>
     <Chance v-bind:number="convertRawToTable[currentCards][0]"></Chance>
     <Chance v-bind:number="convertRawToTable[currentCards][1]"></Chance>
     <Chance v-bind:number="convertRawToTable[currentCards][2]"></Chance>
     <div class="stars cell">{{currentCards}}</div>
 
-    <div class="stars cell">{{currentCards+1}}</div>
-    <Chance v-bind:number="convertRawToTable[currentCards+1][0]"></Chance>
-    <Chance v-bind:number="convertRawToTable[currentCards+1][1]"></Chance>
-    <Chance v-bind:number="convertRawToTable[currentCards+1][2]"></Chance>
-    <div class="stars cell">{{currentCards+1}}</div>
 
   </section>
   </div>
@@ -70,7 +61,8 @@
 
     props: [
       'numberOfLuckySeven',
-      'numberOfPlayers'
+      'numberOfPlayers',
+      'difficulty'
     ],
 
     computed: {

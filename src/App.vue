@@ -8,23 +8,27 @@
       />
 
     <v-content>
-      <Main
-        :numberOfLuckySeven="numberOfLuckySeven"
-        :numberOfPlayers="numberOfPlayers"
-        />
+      <v-container>
+        <router-view
+          :numberOfLuckySeven="numberOfLuckySeven"
+          :numberOfPlayers="numberOfPlayers"
+          ></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Main from './components/Main'
+import ChanceTable from './components/ChanceTable'
+import ChooseDifficulty from './components/ChooseDifficulty'
 import Header from './components/Header'
 
 export default {
   name: 'App',
   components: {
-    Main,
-    Header
+    Header,
+    ChooseDifficulty,
+    ChanceTable
   },
   data () {
     return {

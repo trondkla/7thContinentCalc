@@ -7,8 +7,7 @@
     >
       <ChanceTable
         :numberOfLuckySeven="numberOfLuckySeven"
-        :numberOfPlayers="numberOfPlayers"
-      ></ChanceTable>
+        :numberOfPlayers="numberOfPlayers" />
     </v-layout>
   </v-container>
 </template>
